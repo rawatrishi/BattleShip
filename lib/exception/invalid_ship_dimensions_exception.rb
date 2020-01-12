@@ -1,0 +1,2 @@
+class InvalidShipDimensionsException < StandardError
+end

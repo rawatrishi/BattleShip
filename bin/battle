@@ -1,0 +1,46 @@
+#!/usr/bin/env ruby
+
+# Assumptions :
+#   Array Indexes at all places are starting from 0. 
+#   Hence if width range is 1 to 9, then it is represented from 0 to 8;
+#   If Height ranges from A to Z, then it is represented from 0 to 25 in array.
+#   Hence conversion from character to int is made.
+
+# Author[ Rishi Rawat ]
+
+require_relative '../lib/game'
+
+class Battle
+
+  def call
+    process()
+  end
+
+  private
+
+  def process
+    if (ARGV.length > 0)
+      file_process
+    else
+      puts 'Missing file path'
+    end
+  end
+
+  def file_process
+    begin
+      puts ARGV[0]
+      input = File.read(ARGV[0])
+    rescue StandardError => bang
+      puts "Error reading file #{ bang }"
+      return
+    end
+    input = input.split("\n")
+    #begin
+      Game.new.start_game(input)
+    #rescue StandardError => bang
+    #puts "Error processing input. Error - #{ bang }"
+    #end
+  end
+end
+
+Battle.new.call

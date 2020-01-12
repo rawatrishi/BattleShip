@@ -1,0 +1,2 @@
+class InvalidBattleAreaException < StandardError
+end

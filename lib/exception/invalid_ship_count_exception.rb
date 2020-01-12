@@ -1,0 +1,2 @@
+class InvalidShipCountException < StandardError
+end
